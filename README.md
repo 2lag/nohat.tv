@@ -1,2 +1,2 @@
-# (nohat.tv)[http://nohat.tv]
-source for the nohat.tv website
+# [nohat.tv](http://nohat.tv)
+source for the nohat website
