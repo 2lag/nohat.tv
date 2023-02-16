@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="style.css">
+    <title>nohat.</title>
+</head>
+<body>
+    <!--bottom win98 style navbar-->
+    <nav>
+        <a onclick="toggle1()" href="#">
+            <button id="start-btn" style="min-width: 63px; position: absolute; bottom: 2px; left: 2px;">
+                <div class="logo">
+                    <img src="img/nohat.jpg" class="nohat">
+                </div>
+                <b style="position: absolute; bottom: 5px; left: 25px">Start</b>
+            </button>
+        </a>
+
+        <div class="divider" style="position: absolute; bottom: 3px; left: 71px; width: 4px; height: 21px; background-color: #C0C0C0; box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;"></div>
+
+        <div class="options">
+            <a onclick="closeAll()" href="#">
+                <button id="main-btn" style="position: absolute; bottom: 2px; left: 80px;">
+                    <i class="fa-solid fa-house" style="position: absolute; bottom: 6px; left: 6px"></i>
+                    <div id="main-txt" style="position: absolute; right: 20px; bottom: 5px;">
+                        Main
+                    </div>
+                </button>
+            </a>
+
+            <a onclick="toggle2()" href="#">
+                <button id="abt-btn" style="position: absolute; bottom: 2px; left: 160px;">
+                    <i class="fa-solid fa-timeline" style="position: absolute; bottom: 6px; left: 5px"></i>
+                    <div id="abt-txt" style="position: absolute; right: 15px; bottom: 5px;">
+                        About
+                    </div>
+                </button>
+            </a>
+
+            <a onclick="toggle()" href="#">
+                <button id="featured-btn" style="position: absolute; bottom: 2px; left: 240px;">
+                    <i class="fa-brands fa-youtube" style="position: absolute; bottom: 6px; left: 6px"></i>
+                    <div id="feat-txt" style="position: absolute; right: 8px; bottom: 5px;">
+                        Featured
+                    </div>
+                </button>
+            </a>
+
+            <p class="status-bar-field" id="network-container" style="min-height: 19px; position: absolute; bottom: 1px; right: 116px;">
+                <span id="network" style="color: #000; text-align: center; vertical-align: middle; line-height: 20px;"></span>
+            </p>
+            <script>
+                const net = document.getElementById("network");
+                setInterval(function() {
+                    try {
+                        net.innerHTML = navigator.connection.downlink + " mb/s";
+                    } catch (e) {
+                        document.getElementById("network-container").style.display = "none";
+                    }
+                }, 1000);
+            </script>
+
+            <p class="status-bar-field" style="min-height: 19px; position: absolute; bottom: 1px; right: 2px;">
+                <span id="date-time" style="color: #000; text-align: center; vertical-align: middle; line-height: 20px;"></span>
+            </p>
+            <script>
+                const dt = document.getElementById("date-time");
+                setInterval(function() {
+                    const date = new Date();
+                    const month = date.getMonth() + 1;
+                    const day = date.getDate();
+                    const year = date.getFullYear();
+                    const hour = date.getHours();
+                    const minute = date.getMinutes();
+                    const ampm = hour >= 12 ? 'PM' : 'AM';
+                    const hour12 = hour % 12;
+                    const hour12Display = hour12 ? hour12 : 12;
+                    const minuteDisplay = minute < 10 ? '0' + minute : minute;
+                    dt.innerHTML = month + "/" + day + "/" + year + " " + hour12Display + ":" + minuteDisplay + " " + ampm;
+                }, 1000);
+            </script>
+        </div>
+    </nav>
+    <!--start menu-->
+    <div id="start" class="start-menu" style="z-index: 2;">
+        <!--links text-->
+        <div style="width: 180px; height: 25px">
+            <i class="fa-solid fa-link fa-lg" style="position: absolute; left: 8px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">Links</b>
+        </div>
+        <!--discord link-->
+        <div style="width: 180px; height: 25px" class="link">
+            <a href="https://discord.gg/XVCSwfzwzt" target="_blank">
+                <i class="fa-brands fa-discord fa-lg" style="position: absolute; left: 8px; top: 38px; color: #000;"></i>
+                <b style="position: absolute; left: 35px; top: 30px; color: #000;">Discord</b>
+            </a>
+        </div>
+        <!--steam link-->
+        <div style="width: 180px; height: 25px" class="link">
+            <a href="https://steamcommunity.com/groups/nohatatatata" target="_blank">
+                <i class="fa-brands fa-steam fa-xl" style="position: absolute; left: 8px; top: 62px; color: #000;"></i>
+                <b style="position: absolute; left: 35px; top: 55px; color: #000;">Steam</b>
+            </a>
+        </div>
+        <!--youtube link-->
+        <div style="width: 180px; height: 25px" class="link">
+            <a href="https://www.youtube.com/channel/UCB2msik6fToDny5yBAFNXUA" target="_blank">
+                <i class="fa-brands fa-youtube fa-lg" style="position: absolute; left: 8px; top: 87px; color: #000;"></i>
+                <b style="position: absolute; left: 35px; top: 80px; color: #000;">YouTube</b>
+            </a>
+        </div>
+        <!--horizontal divider-->
+        <div style="width: 170px; height: 1px; background-color: #ababab; position: absolute; top: 105px; left: 5px; box-shadow: 0px 2px 0px 0px #d5d5d5;"></div>
+        <!--stats text-->
+        <div style="width: 180px; height: 25px; position: absolute; top: 110px">
+            <i class="fa-solid fa-calendar-days fa-lg" style="position: absolute; left: 10px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">Stats :</b>
+        </div>
+        <!--last update-->
+        <div style="width: 180px; height: 25px; position: absolute; top: 135px">
+            <i class="fa-solid fa-upload fa-lg" style="position: absolute; left: 9px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">Last Update : 12/16/22</b>
+        </div>
+        <!--total visits-->
+        <div style="width: 180px; height: 25px; position: absolute; top: 160px">
+            <i class="fa-solid fa-eye fa-lg" style="position: absolute; left: 9px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">Visits :</b>
+            <img src="https://counter5.optistats.ovh/private/freecounterstat.php?c=be4jjc1u2twdsnag7aauyxr9g1xnn3c1" border="0" style="position: absolute; left: 80px; top: 4px">
+        </div>
+        <!--file size-->
+        <div style="width: 180px; height: 25px; position: absolute; top: 185px">
+            <i class="fa-solid fa-hard-drive fa-lg" style="position: absolute; left: 10px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">HDD Usage : 1.00 MB</b>
+        </div>
+        <!--file count-->
+        <div style="width: 180px; height: 25px; position: absolute; top: 210px">
+            <i class="fa-solid fa-folder-tree fa-lg" style="position: absolute; left: 9px; top: 12px; color: #505050;"></i>
+            <b style="position: absolute; left: 35px; top: 5px; color: #505050;">File Count : 10</b>
+        </div>
+    </div>
+    <!--featured video window-->
+    <div class="window" id="draggable" style="width: 384px; height: 242px; position: absolute; top: 5px; left: 5px;">
+        <div id="draggableheader" class="title-bar">
+            <div class="title-bar-text"><img src="img/nohat.jpg" class="title-bar-logo">Featured Video</div>
+            <div class="title-bar-controls">
+                <button onclick="toggle()" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <iframe id="featurevid" width="100%" style="height: clamp(0px, 206px, 100vh);" src="https://www.youtube.com/embed/_jZyAmJ1NXM" title="video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div id="resizable1" class="resizable"></div>
+        </div>
+    </div>
+    <!--about window-->
+    <div class="window" id="draggable1" style="width: 350px; height: 350px; position: absolute; top: 350px; left: 20px;">
+        <div id="draggable1header" class="title-bar">
+            <div class="title-bar-text"><img src="img/nohat.jpg" class="title-bar-logo">About</div>
+            <div class="title-bar-controls">
+                <button onclick="toggle2()" aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div style="color: #000"><b>Members list:</b></div>
+            <ul id="memberlist" class="tree-view" style="color: #000; height: 290px; text-overflow: ellipsis; white-space: nowrap; overflow-x: hidden; overflow-y: scroll;">
+                <li>
+                    <details>
+                      <summary>hip</summary>
+                      <ul>
+                        <li><a href="https://instagram.com/hoebhappy" target="_blank"><i class="fa-brands fa-instagram"></i>&nbsp;&nbsp;instagram</a></li>
+                        <li><a href="https://steamcommunity.com/id/pubIic" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://youtube.com/hipscripts" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li>
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>flash</summary>
+                      <ul>
+                        <li><a href="http://steamcommunity.com/profiles/76561199072181720"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCTZ2LgSvDthZfij7C6_2B1Q" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li>
+                      </ul>
+                    </details>
+                </li>
+				<li>
+					<details>
+					  <summary>solo</summary>
+					</details>
+				</li>
+                <li>
+                    <details>
+                      <summary>day</summary>
+                      <ul>
+                        <li><a href="https://steamcommunity.com/id/bosozoku" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://youtube.com/@spasm" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li>
+                        <li><a href="https://2lag.day" target="_blank"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;2lag</a></li></a></li>
+                        <li><a href="https://kus.ooo" target="_blank"><i class="fa-solid fa-person-running"></i>&nbsp;&nbsp;kuso</a></li>
+                        <li><a href="https://nohat.tv" target="_blank"><img src="img/nohat.jpg" width="11px" height="11px"></img>&nbsp;&nbsp;nohat.tv</a></li>
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>abbie</summary>
+                      <ul>
+                        <li><a href="http://steamcommunity.com/profiles/76561198031351447" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/channel/UC5nKcfApCLbqWeVa3KHbsMg" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li> 
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>shaiaz</summary>
+                      <ul>
+                        <li><a href="https://steamcommunity.com/id/prncss" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/@mrsshaiaz5807" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li> 
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>mxtt</summary>
+                      <ul>
+                        <li><a href="https://steamcommunity.com/id/mildhigh" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://twitter.com/mildhighh" target="_blank"><i class="fa-brands fa-square-twitter"></i>&nbsp;&nbsp;twitter</a></li>
+                        <li><a href="https://www.youtube.com/mxttfps" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li> 
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>fig</summary>
+                      <ul>
+                        <li><a href="https://steamcommunity.com/profiles/76561197996102979" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/@fig1286" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li> 
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>treiton</summary>
+                      <ul>
+                        <li><a href="http://steamcommunity.com/profiles/76561198421380613" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/@treiton" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li>
+                      </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                      <summary>semi</summary>
+                      <ul>
+                        <li><a href="https://soundcloud.com/semi777" target="_blank"><i class="fa-brands fa-soundcloud"></i>&nbsp;&nbsp;soundcloud</a></li>
+                        <li><a href="https://steamcommunity.com/id/nclt" target="_blank"><i class="fa-brands fa-square-steam"></i>&nbsp;&nbsp;steam</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCTa2ezehsQVNuYeNqNTQjmg" target="_blank"><i class="fa-brands fa-square-youtube"></i>&nbsp;&nbsp;youtube</a></li>
+                      </ul>
+                    </details>
+                </li>
+            </ul>
+            <div id="resizable2" class="resizable"></div>
+        </div>
+    </div>
+    <!--server window-->
+    <div class="window" id="draggable2" style="width: 200px; height: 200px; position: absolute; top: 275px; left: 395px">
+        <div id="draggable2header" class="title-bar">
+            <div class="title-bar-text"><img src="img/nohat.jpg" class="title-bar-logo">Servers</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="toggle3()"></button>
+            </div>
+        </div>
+        <div id="servers-main" class="window-body">
+            <b><br>
+                <div class="server-selector" id="server-selector">
+                    <button onclick="showCSS()" id="css-btn" style="min-width: 30%; box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;"><b>CS:S</b></button>
+                    <button onclick="showTF2()" id="tf2-btn" style="min-width: 30%;"><b>TF2</b></button>
+                    <button onclick="showCSGO()" id="csgo-btn" style="min-width: 30%;"><b>CS:GO</b></button>
+                </div>
+                <br><br>
+                <div id="css" style="color: #000; text-align: center;">
+                    status: <span style="color: rgb(93, 136, 93)">online</span><br>
+                    players: 0/12<br>
+                    map: de_dust2<br><br>
+                    <button disabled>join!</button>
+                </div>
+
+                <div id="tf2" style="color: #000; text-align: center; display: none;">
+                    status: <span style="color: rgb(136, 93, 93)">offline</span><br>
+                    players: 0/12<br>
+                    map: ctf_2fort<br><br>
+                    <button disabled>join!</button>
+                </div>
+
+                <div id="csgo" style="color: #000; text-align: center; display: none;">
+                    status: <span style="color: rgb(136, 93, 93)">offline</span><br>
+                    players: 0/12<br>
+                    map: de_mirage<br><br>
+                    <button disabled>join!</button>
+                </div>
+            </b>
+            <div id="resizable3" class="resizable"></div>
+        </div>
+    </div>
+
+    <!--credit-->
+    <span style="position:absolute; bottom: 27px; right: 2px; color: #ffffff33;">
+        made by: <a href="https://steamcommunity.com/id/bosozoku" target="_blank">day</a>
+    </span>
+
+    <!--js-->
+    <script src="js/drag.js"></script>
+    <script src="js/resizable.js"></script>
+    <script src="js/toggle.js"></script>
+    <script src="js/keyblock.js"></script>
+    <script src="js/resizetabs.js"></script>
+    <script src="js/server.js"></script>
+    <script src="https://kit.fontawesome.com/8de8e72679.js" crossorigin="anonymous"></script>
+</body>
+</html>

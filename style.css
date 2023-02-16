@@ -1,0 +1,92 @@
+html, body {
+    background-color: #3d6da3;
+    background-image: url("img/wallpaper.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+nav {
+    background-color: #C0C0C0;
+    color: #fff;
+    width: 100vw;
+    height: 27px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+span>a {
+    color: #ffffff33;
+    transition: 500ms;
+}
+
+span>a:hover {
+    color: #ddddaa60;
+    text-shadow: #fff 0 0 8px;
+}
+
+.logo, .nohat {
+    width: 13px;
+    height: 13px;
+    position: fixed;
+    left: 8px;
+    bottom: 7px;
+}
+
+.options {
+    display: inline-block;
+    height: 27px;
+}
+
+.window {
+    display: none;
+}
+
+.title-bar-logo {
+    width: 12px;
+    height: 11px;
+    padding: 1px 5px 0px 1px;
+}
+
+.start-menu {
+    display: none;
+    background-color: #C0C0C0;
+    color: #000;
+    width: 180px;
+    height: 235px;
+    box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px grey,inset 2px 2px #dfdfdf;
+    position: absolute;
+    bottom: 27px;
+    left: 0px;
+}
+
+.resizable {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 2px;
+    right: 2px; 
+    background: radial-gradient(circle, rgba(201,201,201,1) 0%, rgb(116, 153, 192) 10%, rgba(201,201,201,1) 20%, rgba(116, 153, 192) 30%, rgba(201,201,201,1) 40%, rgba(116, 153, 192) 50%, rgba(201,201,201,1) 60%, rgba(116, 153, 192) 70%, rgba(201,201,201,1) 80%, rgba(116, 153, 192) 90%, rgba(201,201,201,1) 100%);
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}
+
+.server-selector {
+    text-align: center;
+    align-items: center;
+}
+
+.link:hover {
+    background-color: #010080;
+}
+
+ul>li>a:hover {
+    text-decoration: underline;
+}
