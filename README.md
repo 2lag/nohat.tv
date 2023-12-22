@@ -1,2 +1,1 @@
-# [nohat.tv](http://nohat.tv)
-source for the nohat website
+source for a group i used to be apart of
